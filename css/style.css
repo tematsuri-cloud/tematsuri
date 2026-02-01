@@ -94,6 +94,20 @@ footer {
 .lang-en {
   display: none;
 }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 16px 0 32px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
 
 .show {
   display: block;
