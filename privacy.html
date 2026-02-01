@@ -1,1 +1,146 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>プライバシーポリシー | Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<header>
+  <h1>Developer Site</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  <div class="lang">
+    <button id="btn-ja" class="active">日本語</button>
+    <button id="btn-en">English</button>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+
+    <!-- 日本語 -->
+    <section class="lang-ja show">
+      <h2>プライバシーポリシー</h2>
+
+      <p>
+        開発者は、本アプリにおけるユーザーの個人情報の取扱いについて、
+        以下のとおりプライバシーポリシーを定めます。
+      </p>
+
+      <h3>1. 取得する情報</h3>
+      <p>
+        本アプリでは、個人を特定する情報を直接取得することはありません。
+      </p>
+
+      <h3>2. 広告配信について</h3>
+      <p>
+        本アプリでは、第三者配信の広告サービス（AdMob等）を利用しています。
+        広告配信事業者は、端末情報や広告識別子を取得する場合があります。
+      </p>
+
+      <h3>3. 利用目的</h3>
+      <ul>
+        <li>広告の配信および最適化</li>
+        <li>アプリの品質向上、利用状況の分析</li>
+      </ul>
+
+      <h3>4. 第三者提供</h3>
+      <p>
+        法令に基づく場合を除き、第三者に提供することはありません。
+      </p>
+
+      <h3>5. 免責事項</h3>
+      <p>
+        広告配信事業者のサービスに起因する損害について、
+        開発者は責任を負いません。
+      </p>
+
+      <h3>6. 変更</h3>
+      <p>
+        本ポリシーは必要に応じて変更されます。
+      </p>
+
+      <h3>7. お問い合わせ</h3>
+      <p>
+        お問い合わせは、アプリ配信ページ記載の連絡先よりお願いいたします。
+      </p>
+    </section>
+
+    <!-- English -->
+    <section class="lang-en">
+      <h2>Privacy Policy</h2>
+
+      <p>
+        This policy explains how user information is handled.
+      </p>
+
+      <h3>1. Information</h3>
+      <p>
+        No personally identifiable information is directly collected.
+      </p>
+
+      <h3>2. Ads</h3>
+      <p>
+        Third-party ad services (e.g. AdMob) may collect device information.
+      </p>
+
+      <h3>3. Purpose</h3>
+      <ul>
+        <li>Ad delivery and optimization</li>
+        <li>App improvement and analytics</li>
+      </ul>
+
+      <h3>4. Third Parties</h3>
+      <p>
+        Information is not shared except as required by law.
+      </p>
+
+      <h3>5. Disclaimer</h3>
+      <p>
+        The developer is not responsible for damages caused by ad services.
+      </p>
+
+      <h3>6. Changes</h3>
+      <p>
+        This policy may be updated without notice.
+      </p>
+
+      <h3>7. Contact</h3>
+      <p>
+        Please refer to the app store listing for contact details.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer>© 2026 Developer</footer>
+
+<script>
+const btnJa = document.getElementById("btn-ja");
+const btnEn = document.getElementById("btn-en");
+const ja = document.querySelector(".lang-ja");
+const en = document.querySelector(".lang-en");
+
+btnJa.onclick = () => {
+  ja.classList.add("show");
+  en.classList.remove("show");
+  btnJa.classList.add("active");
+  btnEn.classList.remove("active");
+};
+
+btnEn.onclick = () => {
+  en.classList.add("show");
+  ja.classList.remove("show");
+  btnEn.classList.add("active");
+  btnJa.classList.remove("active");
+};
+</script>
+</body>
+</html>
