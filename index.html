@@ -5,7 +5,7 @@
   <title>Shogi Game | Developer Site</title>
 
   <!-- SEO -->
-  <meta name="description" content="キャラクターと楽しめる初心者向け将棋ゲーム。シンプル操作で将棋を学べます。Android・iOS対応。" />
+  <meta name="description" content="将棋の駒たちがキャラクターとなって戦う、初心者でも楽しめる新しい戦略ゲーム。・iOS対応。" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="css/style.css" />
@@ -32,35 +32,117 @@
       <h2>将棋ゲームアプリ</h2>
 
       <p>
-        キャラクターと一緒に楽しめる、初心者向け将棋ゲームです。
-        ゲーム感覚で将棋のルールを学べます。
+将棋の駒たちがキャラクターとなって戦う、初心者でも楽しめる新しい戦略ゲーム。
+ルールはシンプル。けれど一手ごとにドラマがある。 
+        あなたの指す一手が、戦局を変える――。 
+        さあ、「負けない将棋」で自分だけの戦い方を見つけよう！
       </p>
-
+      
+      <h3>駒・キャラクター</h3>
 <div class="gallery">
 
-  <div class="char">
-    <img src="images/shogi_1.png" alt="歩兵キャラクター" />
-    <h4>歩兵（Pawn）</h4>
-    <p>一歩ずつ前進する、将棋の基本キャラクター。</p>
-  </div>
+<div class="char">
+  <img src="images/shogi_pawn.png" alt="歩兵キャラクター" />
+  <h4>歩兵（Pawn） ⚔️</h4>
+  <p>前に一歩ずつ進む基本ユニット。数で前線を支える。</p>
+  <p class="en">A basic unit that moves one step forward and supports the front line.</p>
+</div>
 
-  <div class="char">
-    <img src="images/shogi_2.png" alt="銀将キャラクター" />
-    <h4>銀将（Silver）</h4>
-    <p>攻撃的な動きが得意な、前線のアタッカー。</p>
-  </div>
+<div class="char">
+  <img src="images/shogi_lance.png" alt="香車キャラクター" />
+  <h4>香車（Lance） 🌍</h4>
+  <p>前方へ一気に進む、長距離アタッカー。</p>
+  <p class="en">A long-range unit that charges straight forward.</p>
+</div>
 
-  <div class="char">
-    <img src="images/shogi_3.png" alt="角行キャラクター" />
-    <h4>角行（Bishop）</h4>
-    <p>斜めに駆け抜ける、戦局を動かす存在。</p>
-  </div>
+<div class="char">
+  <img src="images/shogi_knight.png" alt="桂馬キャラクター" />
+  <h4>桂馬（Knight） 🎯</h4>
+  <p>ジャンプのような動きで敵を翻弄する奇襲役。</p>
+  <p class="en">A tricky unit that jumps to surprise enemies.</p>
+</div>
 
-  <div class="char">
-    <img src="images/shogi_4.png" alt="王将キャラクター" />
-    <h4>王将（King）</h4>
-    <p>守りの要。勝敗の鍵を握る重要キャラ。</p>
-  </div>
+<div class="char">
+  <img src="images/shogi_silver.png" alt="銀将キャラクター" />
+  <h4>銀将（Silver General） ⚔️</h4>
+  <p>攻撃力が高く、素早く敵陣に切り込む。</p>
+  <p class="en">An aggressive unit focused on offense.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_gold.png" alt="金将キャラクター" />
+  <h4>金将（Gold General） 🛡️</h4>
+  <p>王を守る要。攻守のバランスに優れる。</p>
+  <p class="en">A well-balanced unit that protects the King.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_bishop.png" alt="角行キャラクター" />
+  <h4>角行（Bishop） 🌍</h4>
+  <p>斜め方向を制圧する遠距離ユニット。</p>
+  <p class="en">A long-range unit that controls diagonal lines.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_rook.png" alt="飛車キャラクター" />
+  <h4>飛車（Rook） 🌍</h4>
+  <p>縦横無尽に動き、盤面を制圧する主力。</p>
+  <p class="en">A dominant unit that controls ranks and files.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_king.png" alt="王将キャラクター" />
+  <h4>王将（King） 👑</h4>
+  <p>勝敗を決める指揮官。倒されると敗北。</p>
+  <p class="en">The commander of the game. Losing the King means defeat.</p>
+</div>
+
+</div>
+            <h3>成り駒・成りキャラクター</h3>
+
+      <div class="gallery">
+
+<div class="char">
+  <img src="images/shogi_pawn_p.png" alt="と金キャラクター" />
+  <h4>と金（Promoted Pawn） ⭐</h4>
+  <p>成長した歩兵。攻守のバランスが良い万能型。</p>
+  <p class="en">An evolved pawn with balanced offense and defense.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_lance_p.png" alt="成香キャラクター" />
+  <h4>成香（Promoted Lance） ⭐</h4>
+  <p>動きが安定し、扱いやすくなった万能型。</p>
+  <p class="en">A more stable and versatile promoted form.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_knight_p.png" alt="成桂キャラクター" />
+  <h4>成桂（Promoted Knight） ⭐</h4>
+  <p>安定した動きになり、前線で戦いやすい。</p>
+  <p class="en">A promoted form with improved stability.</p>
+</div>
+        
+<div class="char">
+  <img src="images/shogi_silver_p.png" alt="成銀キャラクター" />
+  <h4>成銀（Promoted Silver） ⭐</h4>
+  <p>守備力が向上し、攻守のバランスが取れる。</p>
+  <p class="en">A balanced promoted unit with better defense.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_bishop_p.png" alt="龍馬キャラクター" />
+  <h4>龍馬（Promoted Bishop） ⭐</h4>
+  <p>近距離も対応できる強力な万能型。</p>
+  <p class="en">A powerful promoted unit with close-range mobility.</p>
+</div>
+
+<div class="char">
+  <img src="images/shogi_rook_p.png" alt="龍王キャラクター" />
+  <h4>龍王（Promoted Rook） ⭐</h4>
+  <p>攻撃範囲が拡張された最強クラスの存在。</p>
+  <p class="en">An elite promoted unit with extended attack range.</p>
+</div>
 
 </div>
 
