@@ -112,3 +112,29 @@ footer {
 .show {
   display: block;
 }
+.char {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.char img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.char h4 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.char p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--sub);
+}
+
