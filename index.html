@@ -1,21 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Developer Site</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Shogi Game | Developer Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-  <h1>Developer Site</h1>
+<header>
+  <h1>Shogi Game</h1>
+  <nav>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+  <div class="lang">
+    <button id="btn-ja" class="active">日本語</button>
+    <button id="btn-en">English</button>
+  </div>
+</header>
 
-  <p>Please select your language.</p>
+<main>
+  <div class="card">
 
-  <ul>
-    <li><a href="/ja/">日本語</a></li>
-    <li><a href="/en/">English</a></li>
-  </ul>
+    <!-- 日本語 -->
+    <section class="lang-ja show">
+      <h2>将棋ゲームアプリ</h2>
 
-  <hr>
-  <p>© Developer</p>
+      <p>
+        キャラクターと一緒に楽しめる、初心者向け将棋ゲームです。  
+        シンプルな操作で、将棋のルールを学びながらプレイできます。
+      </p>
+
+      <img
+        src="images/shogi_character.png"
+        alt="将棋キャラクター"
+        style="width:100%; max-width:500px; display:block; margin:24px auto;"
+      />
+
+      <h3>特徴</h3>
+      <ul>
+        <li>キャラクター付きの将棋ゲーム</li>
+        <li>初心者でも遊びやすい設計</li>
+        <li>広告付きの無料プレイ</li>
+      </ul>
+
+      <h3>ダウンロード</h3>
+      <p>
+        <a href="https://play.google.com/" target="_blank">
+          ▶ Google Play
+        </a><br />
+        <a href="https://www.apple.com/app-store/" target="_blank">
+          ▶ App Store
+        </a>
+      </p>
+    </section>
+
+    <!-- English -->
+    <section class="lang-en">
+      <h2>Shogi Game App</h2>
+
+      <p>
+        A beginner-friendly shogi game you can enjoy with characters.  
+        Learn the rules of shogi while playing.
+      </p>
+
+      <img
+        src="images/shogi_character.png"
+        alt="Shogi Character"
+        style="width:100%; max-width:500px; display:block; margin:24px auto;"
+      />
+
+      <h3>Features</h3>
+      <ul>
+        <li>Shogi game with characters</li>
+        <li>Easy for beginners</li>
+        <li>Free to play with ads</li>
+      </ul>
+
+      <h3>Download</h3>
+      <p>
+        <a href="https://play.google.com/" target="_blank">
+          ▶ Google Play
+        </a><br />
+        <a href="https://www.apple.com/app-store/" target="_blank">
+          ▶ App Store
+        </a>
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 tematsuri  
+  <br />
+  <a href="terms.html">Terms</a> |
+  <a href="privacy.html">Privacy</a>
+</footer>
+
+<script>
+const btnJa = document.getElementById("btn-ja");
+const btnEn = document.getElementById("btn-en");
+const ja = document.querySelector(".lang-ja");
+const en = document.querySelector(".lang-en");
+
+btnJa.onclick = () => {
+  ja.classList.add("show");
+  en.classList.remove("show");
+  btnJa.classList.add("active");
+  btnEn.classList.remove("active");
+};
+
+btnEn.onclick = () => {
+  en.classList.add("show");
+  ja.classList.remove("show");
+  btnEn.classList.add("active");
+  btnJa.classList.remove("active");
+};
+</script>
 </body>
 </html>
