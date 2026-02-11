@@ -1,8 +1,13 @@
-
 {
-  "updated": "2026-02-10",
+  "updated": "2026-02-11",
   "titles": [
-    { "id": "ousho", "name": "王将戦", "top3": [...] },
-    { "id": "meijin", "name": "名人戦", "top3": [...] }
+    {
+      "id": "ousho",
+      "name": "王将戦",
+      "top50": [
+        { "rank": 1, "name": "Player1", "score": 1200 },
+        { "rank": 2, "name": "Player2", "score": 1180 }
+      ]
+    }
   ]
 }
