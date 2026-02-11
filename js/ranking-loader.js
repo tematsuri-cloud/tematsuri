@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
 
-    const res = await fetch("../rankings/index_ranking.json", { cache: "no-store" });
+    const res = await fetch("rankings/index_ranking.json", { cache: "no-store" });
     const data = await res.json();
 
     if (!data.titles) {
