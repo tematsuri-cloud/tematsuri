@@ -1,6 +1,8 @@
-
-[
-  { "name": "Player001", "score": 1200 },
-  { "name": "Player002", "score": 1180 },
-  { "name": "Player003", "score": 1150 }
-]
+{
+  "title": "王将戦",
+  "updated": "2026-02-10",
+  "ranking": [
+    { "rank": 1, "name": "PlayerA", "score": 1200 },
+    { "rank": 2, "name": "PlayerB", "score": 1180 }
+  ]
+}
