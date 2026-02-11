@@ -1,25 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <title>竜王戦ランキング</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ランキング</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-<h1>竜王戦 ランキング（100位）</h1>
-<ol id="list"></ol>
+<header>
+  <h2 id="title-name">タイトル戦ランキング</h2>
+  <a href="../index.html">← 戻る</a>
+</header>
 
+<div class="card">
+  <p id="updated-date"></p>
+  <table class="ranking-table" id="ranking-table"></table>
+</div>
+
+<script src="../js/ranking-loader.js"></script>
 <script>
-fetch("../rankings/ryuo.json")
-  .then(r => r.json())
-  .then(data => {
-    document.getElementById("list").innerHTML =
-      data.slice(0,100)
-        .map(p => `<li>${p.name}（${p.score}）</li>`)
-        .join("");
-  });
+loadRanking("ousho"); // ← ここだけ変更
 </script>
 
 </body>
