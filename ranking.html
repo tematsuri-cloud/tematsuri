@@ -1,121 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>タイトル戦ランキング</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <title>Title Match Rankings | SHOGI GAME ATTACK 50</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SHOGI GAME ATTACK 50 Title Match Rankings">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+<header>
+  <h1>🏆 タイトル戦ランキング</h1>
+  <a href="index.html">← トップへ戻る</a>
+</header>
 
-<h1>タイトル戦ランキング</h1>
-<div id="rankingArea"></div>
+<main id="ranking-container">
+  <p>ランキングを読み込み中…</p>
+</main>
 
-<script>
+<footer>
+  © 2026 tematsuri
+</footer>
 
-const TITLE_ID = "77664";
-const CACHE_HOURS = 24;
-
-// 年から開催期間を生成
-function getSchedules(year){
-
-return [
- {stat:"1ooi", name:"王将戦", start:new Date(year,1,25,21), end:new Date(year,3,25,21)},
- {stat:"2kiou", name:"棋王戦", start:new Date(year,3,25,21), end:new Date(year,4,25,21)},
- {stat:"3meijin", name:"名人戦", start:new Date(year,4,25,21), end:new Date(year,5,25,21)},
- {stat:"4eiou", name:"叡王戦", start:new Date(year,5,25,21), end:new Date(year,6,25,21)},
- {stat:"5kisei", name:"棋聖戦", start:new Date(year,6,25,21), end:new Date(year,7,1,21)},
- {stat:"6oui", name:"王位戦", start:new Date(year,7,1,21), end:new Date(year,8,10,21)},
- {stat:"7ouza", name:"王座戦", start:new Date(year,8,10,21), end:new Date(year,10,15,21)},
- {stat:"8ryuou", name:"竜王戦", start:new Date(year,10,15,21), end:new Date(year,11,31,23,59)}
-];
-
-}
-
-function sortByCurrent(schedules){
-
-const now = new Date();
-
-return schedules.sort(a=>{
-if(now>=a.start && now<=a.end) return -1;
-return 1;
-});
-
-}
-
-async function getLeaderboard(stat){
-
-const cacheKey = "ranking_"+stat;
-const cache = localStorage.getItem(cacheKey);
-
-if(cache){
-const obj = JSON.parse(cache);
-const age = (Date.now()-obj.time)/(1000*60*60);
-if(age < CACHE_HOURS){
-return obj.data;
-}
-}
-
-const res = await fetch(`https://${TITLE_ID}.playfabapi.com/Client/GetLeaderboard`,{
-method:"POST",
-headers:{ "Content-Type":"application/json" },
-body:JSON.stringify({ StatisticName:stat, MaxResultsCount:50 })
-});
-
-const data = await res.json();
-
-localStorage.setItem(cacheKey, JSON.stringify({
-time:Date.now(),
-data:data
-}));
-
-return data;
-}
-
-async function draw(){
-
-const year = new Date().getFullYear();
-let schedules = getSchedules(year);
-schedules = sortByCurrent(schedules);
-
-for(const s of schedules){
-
-const section=document.createElement("section");
-
-section.innerHTML=`
-<h2>${s.name}</h2>
-<table>
-<tr><th>順位</th><th>プレイヤー</th><th>スコア</th></tr>
-<tbody id="${s.stat}"></tbody>
-</table>
-`;
-
-rankingArea.appendChild(section);
-
-const result = await getLeaderboard(s.stat);
-const tbody=document.getElementById(s.stat);
-
-if(result.data && result.data.Leaderboard){
-
-result.data.Leaderboard.forEach(row=>{
-const tr=document.createElement("tr");
-tr.innerHTML=`<td>${row.Position+1}</td><td>${row.DisplayName||"Player"}</td><td>${row.StatValue}</td>`;
-tbody.appendChild(tr);
-});
-
-}else{
-tbody.innerHTML="<tr><td colspan='3'>データなし</td></tr>";
-}
-
-}
-
-}
-
-draw();
-
-</script>
-
+<script src="js/config.js"></script>
+<script src="js/ranking.js"></script>
 </body>
 </html>
