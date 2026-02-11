@@ -14,17 +14,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     for (const title in data) {
       const players = data[title];
-
       if (!Array.isArray(players)) continue;
 
-      html += `<h2>${title.toUpperCase()}</h2>`;
-      html += `<table>`;
       html += `
-        <tr>
-          <th>順位</th>
-          <th>名前</th>
-          <th>レート</th>
-        </tr>
+        <div class="title-block">
+          <h2>${title.toUpperCase()}</h2>
+          <a class="detail-link" href="pages/ranking_${title}.html">
+            ▶ ${title.toUpperCase()} 100位を見る
+          </a>
+      `;
+
+      html += `
+        <table>
+          <tr>
+            <th>順位</th>
+            <th>名前</th>
+            <th>レート</th>
+          </tr>
       `;
 
       players.forEach(player => {
@@ -37,7 +43,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
       });
 
-      html += `</table>`;
+      html += `
+        </table>
+        </div>
+      `;
     }
 
     container.innerHTML = html;
