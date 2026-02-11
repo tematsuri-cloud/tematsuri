@@ -165,4 +165,25 @@ footer {
   text-decoration: none;
 }
 
+body {
+  font-family: system-ui, sans-serif;
+  margin: 8px;
+}
 
+.title-section {
+  margin-bottom: 24px;
+}
+
+.title-section.active h2 {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+a {
+  display: inline-block;
+  margin-top: 6px;
+}
