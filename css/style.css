@@ -138,3 +138,31 @@ footer {
   color: var(--sub);
 }
 
+.ranking-highlight {
+  border: 2px solid gold;
+  background: linear-gradient(#fff9e6, #ffffff);
+  text-align: center;
+}
+
+.title-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+.title-period {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.ranking-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+
