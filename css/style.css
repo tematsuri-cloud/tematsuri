@@ -187,3 +187,31 @@ a {
   display: inline-block;
   margin-top: 6px;
 }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.card {
+  padding: 16px;
+  margin: 12px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.gold {
+  background: linear-gradient(135deg,#f6d365,#fda085);
+  color: #fff;
+  font-weight: bold;
+}
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ranking-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
