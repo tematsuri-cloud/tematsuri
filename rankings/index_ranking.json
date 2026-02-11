@@ -1,13 +1,9 @@
 {
-  "updated": "2026-02-11",
-  "titles": [
-    {
-      "id": "ousho",
-      "name": "王将戦",
-      "top50": [
-        { "rank": 1, "name": "Player1", "score": 1200 },
-        { "rank": 2, "name": "Player2", "score": 1180 }
-      ]
-    }
+  "ryuo": [
+    { "rank": 1, "name": "藤井聡太", "rating": 1980 },
+    { "rank": 2, "name": "羽生善治", "rating": 1850 }
+  ],
+  "meijin": [
+    { "rank": 1, "name": "〇〇", "rating": 1800 }
   ]
 }
