@@ -1,13 +1,13 @@
 
 const TITLES = [
   {
-    id: "1ousho",
+    id: "1oushou",
     name: "王将戦",
     start: "2026-01-10",
     end: "2026-03-15"
   },
   {
-    id: "2kio",
+    id: "2kiou",
     name: "棋王戦",
     start: "2026-02-01",
     end: "2026-03-20"
@@ -43,7 +43,7 @@ const TITLES = [
     end: "2026-10-20"
   },
   {
-    id: "8ryuo",
+    id: "8ryuou",
     name: "竜王戦",
     start: "2026-10-01",
     end: "2026-12-20"
