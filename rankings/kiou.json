@@ -1,9 +1,12 @@
-
 {
-  "title": "王将戦",
-  "updated": "2026-02-10",
-  "ranking": [
-    { "rank": 1, "name": "PlayerA", "score": 1200 },
-    { "rank": 2, "name": "PlayerB", "score": 1180 }
+  "updated": "2026-02-11",
+  "titles": [
+    {
+      "id": "oushou",
+      "name": "王将戦",
+      "top50": [
+        { "rank": 1, "name": "AAA", "score": 1200 }
+      ]
+    }
   ]
 }
