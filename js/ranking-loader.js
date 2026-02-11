@@ -1,30 +1,25 @@
+async function loadRanking(titleId) {
+  try {
+    const response = await fetch(`../rankings/${titleId}.json`);
+    const data = await response.json();
 
-const container = document.getElementById("ranking-container");
+    document.getElementById("title-name").innerText =
+      `${data.title} ランキング`;
 
-// 開催中を上に並び替え
-const sortedTitles = [...TITLES].sort((a, b) => {
-  return isNowActive(b) - isNowActive(a);
-});
+    document.getElementById("updated-date").innerText =
+      `最終更新: ${data.updated}`;
 
-fetch("rankings/index_ranking.json")
-  .then(res => res.json())
-  .then(data => {
-    sortedTitles.forEach(title => {
-      const section = document.createElement("section");
-      section.className = "title-section";
-      if (isNowActive(title)) section.classList.add("active");
+    const table = document.getElementById("ranking-table");
 
-      section.innerHTML = `
-        <h2>${title.name}</h2>
-        <ol>
-          ${data[title.id].slice(0, 50).map(p =>
-            `<li>${p.name}（${p.score}）</li>`
-          ).join("")}
-        </ol>
-        <a href="pages/ranking_${title.id}.html">
-          100位まで見る →
-        </a>
-      `;
-      container.appendChild(section);
-    });
-  });
+    table.innerHTML = data.ranking.map(player => `
+      <tr>
+        <td>${player.rank}</td>
+        <td>${player.name}</td>
+        <td>${player.score}</td>
+      </tr>
+    `).join("");
+
+  } catch (error) {
+    console.error("ランキング取得失敗:", error);
+  }
+}
