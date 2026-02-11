@@ -1,1 +1,26 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>竜王戦ランキング</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<h1>竜王戦 ランキング（100位）</h1>
+<ol id="list"></ol>
+
+<script>
+fetch("../rankings/ryuo.json")
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("list").innerHTML =
+      data.slice(0,100)
+        .map(p => `<li>${p.name}（${p.score}）</li>`)
+        .join("");
+  });
+</script>
+
+</body>
+</html>
