@@ -49,3 +49,13 @@ const TITLES = [
     end: "2026-12-20"
   }
 ];
+const titlePeriods = {
+  ousho:  { start: "01-01", end: "02-24" },
+  kio:    { start: "02-25", end: "04-24" },
+  meijin: { start: "04-25", end: "05-24" },
+  eiou:   { start: "05-25", end: "06-24" },
+  kisei:  { start: "06-25", end: "07-31" },
+  oui:    { start: "08-01", end: "09-09" },
+  ouza:   { start: "09-10", end: "11-14" },
+  ryuo:   { start: "11-15", end: "12-31" }
+};
