@@ -1,7 +1,7 @@
 
 const TITLE_MATCHES = [
   {
-    id: "1ousho",
+    id: "1oushou",
     nameJa: "王将戦",
     nameEn: "Ousho Championship",
     start: "2026-01-01T21:00:00",
