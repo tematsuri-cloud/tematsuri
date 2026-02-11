@@ -62,6 +62,6 @@ const TITLE_MATCHES = [
     nameEn: "Ryuou Championship",
     start: "2026-11-15T21:00:00",
     end:   "2026-12-31T23:59:00",
-    json: "data/ryuou.json"
+    json: "rankings/ryuou.json"
   }
 ];
