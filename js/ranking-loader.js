@@ -1,51 +1,49 @@
 document.addEventListener("DOMContentLoaded", async () => {
-
   const container = document.getElementById("ranking-container");
 
   try {
+    const response = await fetch("rankings/index_ranking.json");
+    const data = await response.json();
 
-    const res = await fetch("rankings/index_ranking.json", { cache: "no-store" });
-    const data = await res.json();
-
-    if (!data.titles) {
-      container.innerHTML = "<p>ランキングデータ形式が正しくありません。</p>";
+    if (!data || typeof data !== "object") {
+      container.innerHTML = "ランキングデータ形式が正しくありません。";
       return;
     }
 
-    data.titles.forEach(title => {
+    let html = "";
 
-      const card = document.createElement("div");
-      card.className = "ranking-card";
+    for (const title in data) {
+      const players = data[title];
 
-      let tableRows = "";
+      if (!Array.isArray(players)) continue;
 
-      if (title.top50 && title.top50.length > 0) {
-        title.top50.forEach(player => {
-          tableRows += `
-            <tr>
-              <td class="rank">${player.rank}</td>
-              <td>${player.name}</td>
-              <td class="score">${player.score}</td>
-            </tr>
-          `;
-        });
-      } else {
-        tableRows = `<tr><td colspan="3">データなし</td></tr>`;
-      }
-
-      card.innerHTML = `
-        <h2>${title.name}</h2>
-        <table class="ranking-table">
-          ${tableRows}
-        </table>
+      html += `<h2>${title.toUpperCase()}</h2>`;
+      html += `<table>`;
+      html += `
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>レート</th>
+        </tr>
       `;
 
-      container.appendChild(card);
-    });
+      players.forEach(player => {
+        html += `
+          <tr>
+            <td>${player.rank}</td>
+            <td>${player.name}</td>
+            <td>${player.rating}</td>
+          </tr>
+        `;
+      });
 
-  } catch (err) {
-    container.innerHTML = "<p>ランキング読み込みエラー</p>";
-    console.error(err);
+      html += `</table>`;
+    }
+
+    container.innerHTML = html;
+
+  } catch (error) {
+    console.error(error);
+    container.innerHTML = "ランキング読み込みエラー";
   }
-
 });
