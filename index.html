@@ -10,6 +10,11 @@
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
+  
+<script src="js/titles.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ranking-loader.js"></script>
+<script src="js/highlight.js"></script>
 
 <body>
 <header>
@@ -48,6 +53,7 @@
             </p>
 
 <h3>🏆 タイトル戦ランキング</h3>
+<div id="ranking-container"></div>
 
 <div class="card ranking-highlight">
   <h4>現在開催中</h4>
@@ -325,5 +331,51 @@ btnEn.onclick = () => {
   btnJa.classList.remove("active");
 };
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.getElementById("ranking-container");
+
+  const data = await fetch("rankings/index_ranking.json")
+    .then(res => res.json());
+
+  const today = new Date();
+
+  // 開催中タイトルを上へ
+  const sorted = data.titles.sort((a, b) => {
+    const aOngoing = isOngoing(a.id, today);
+    const bOngoing = isOngoing(b.id, today);
+    return bOngoing - aOngoing;
+  });
+
+  sorted.forEach(title => {
+    const ongoing = isOngoing(title.id, today);
+
+    const card = document.createElement("div");
+    card.className = "card";
+    if (ongoing) card.classList.add("gold");
+
+    card.innerHTML = `
+      <h4>${title.name}</h4>
+      <p>更新日: ${data.updated}</p>
+      <table class="ranking-table">
+        ${title.top50.map(player => `
+          <tr>
+            <td>${player.rank}</td>
+            <td>${player.name}</td>
+            <td>${player.score}</td>
+          </tr>
+        `).join("")}
+      </table>
+      <a class="ranking-btn" href="pages/ranking_${title.id}.html">
+        ▶ 100位まで見る
+      </a>
+    `;
+
+    container.appendChild(card);
+  });
+});
+</script>
+
 </body>
 </html>
