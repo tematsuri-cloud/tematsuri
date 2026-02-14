@@ -1,13 +1,13 @@
 const titles = [
   {
-    id: "ousho",
+    id: "oushou",
     name: "王将戦",
     start: "2026-01-01",
     end: "2026-02-25",
     updated: "2026-02-11"
   },
   {
-    id: "kio",
+    id: "kiou",
     name: "棋王戦",
     start: "2026-02-25",
     end: "2026-04-25",
