@@ -6,7 +6,7 @@ const TITLE_MATCHES = [
     nameEn: "Ousho Championship",
     start: "2026-01-01T21:00:00",
     end:   "2026-02-25T21:00:00",
-    json: "data/oushou.json"
+    json: "rankings/oushou.json"
   },
   {
     id: "2kiou",
@@ -14,7 +14,7 @@ const TITLE_MATCHES = [
     nameEn: "Kiou Championship",
     start: "2026-02-25T21:00:00",
     end:   "2026-04-25T21:00:00",
-    json: "data/kiou.json"
+    json: "rankings/kiou.json"
   },
   {
     id: "3meijin",
@@ -22,7 +22,7 @@ const TITLE_MATCHES = [
     nameEn: "Meijin Championship",
     start: "2026-04-25T21:00:00",
     end:   "2026-05-25T21:00:00",
-    json: "data/meijin.json"
+    json: "rankings/meijin.json"
   },
   {
     id: "4eiou",
@@ -30,7 +30,7 @@ const TITLE_MATCHES = [
     nameEn: "Eiou Championship",
     start: "2026-05-25T21:00:00",
     end:   "2026-06-25T21:00:00",
-    json: "data/eiou.json"
+    json: "rankings/eiou.json"
   },
   {
     id: "5kisei",
@@ -38,7 +38,7 @@ const TITLE_MATCHES = [
     nameEn: "Kisei Championship",
     start: "2026-06-25T21:00:00",
     end:   "2026-08-01T21:00:00",
-    json: "data/kisei.json"
+    json: "rankings/kisei.json"
   },
   {
     id: "6oui",
@@ -46,7 +46,7 @@ const TITLE_MATCHES = [
     nameEn: "Oui Championship",
     start: "2026-08-01T21:00:00",
     end:   "2026-09-10T21:00:00",
-    json: "data/oui.json"
+    json: "rankings/oui.json"
   },
   {
     id: "7ouza",
@@ -54,7 +54,7 @@ const TITLE_MATCHES = [
     nameEn: "Ouza Championship",
     start: "2026-09-10T21:00:00",
     end:   "2026-11-15T21:00:00",
-    json: "data/ouza.json"
+    json: "rankings/ouza.json"
   },
   {
     id: "8ryuou",
