@@ -1,9 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>龍王戦ランキング</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>🏆 龍王戦ランキング</h1>
+  <a class="back-link" href="../index.html">← 戻る</a>
+</header>
+
+<div id="ranking-container">
+  ランキングを読み込み中…
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("ranking-container");
 
   try {
     const res = await fetch("../rankings/ryuou.json");
+
+    if (!res.ok) {
+      throw new Error("HTTP error");
+    }
+
     const list = await res.json();
 
     if (!Array.isArray(list)) {
@@ -15,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       <table class="ranking-table">
         <tr>
           <th>順位</th>
-          <th>プレイヤー</th>
+          <th>名前</th>
           <th>スコア</th>
         </tr>
     `;
@@ -40,3 +64,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 </script>
 
+</body>
+</html>
