@@ -1,29 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ランキング</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <meta charset="utf-8">
+  <title>竜王戦ランキング</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" href="../css/style.css">
+</head>
 <body>
 
-<header>
-  <h2 id="title-name">タイトル戦ランキング</h2>
-  <a href="../index.html">← 戻る</a>
+<header class="ranking-header">
+  <a class="back-link" href="../index.html">← 戻る</a>
+  <h1>🏆 竜王戦ランキング（TOP100）</h1>
 </header>
 
-<div class="card">
-  <p id="updated-date"></p>
-  <table class="ranking-table" id="ranking-table"></table>
-</div>
+<main>
+  <div id="ranking-container">
+    <p>ランキングを読み込み中…</p>
+  </div>
+</main>
 
-<script src="js/ranking-loader.js"></script>
 <script>
-loadRanking("ryuou"); // ← ここだけ変更
+  const RANKING_FILE = "../rankings/ryuo.json";
+  const TITLE_NAME = "竜王戦";
 </script>
+
+<script src="../js/ranking-loader.js"></script>
 
 </body>
 </html>
