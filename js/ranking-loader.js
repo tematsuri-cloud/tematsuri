@@ -3,28 +3,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const response = await fetch(RANKING_FILE);
-    const data = await response.json();
+    const json = await response.json();
 
-    if (!Array.isArray(data)) {
+    // 🔍 titles があるかチェック
+    if (!json.titles || !Array.isArray(json.titles)) {
       container.innerHTML = "ランキングデータ形式が正しくありません。";
       return;
     }
+
+    // 🔍 対象タイトルを取得（id で判定）
+    const titleData = json.titles.find(t => t.id === TITLE_ID);
+
+    if (!titleData || !Array.isArray(titleData.top50)) {
+      container.innerHTML = "該当タイトルのランキングが見つかりません。";
+      return;
+    }
+
+    const list = titleData.top50;
 
     let html = `
       <table class="ranking-table">
         <tr>
           <th>順位</th>
           <th>名前</th>
-          <th>レート</th>
+          <th>スコア</th>
         </tr>
     `;
 
-    data.forEach(player => {
+    list.forEach(p => {
       html += `
         <tr>
-          <td>${player.rank}</td>
-          <td>${player.name}</td>
-          <td>${player.rating}</td>
+          <td>${p.rank}</td>
+          <td>${p.name}</td>
+          <td>${p.score}</td>
         </tr>
       `;
     });
@@ -38,3 +49,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.innerHTML = "ランキング読み込みエラー";
   }
 });
+
