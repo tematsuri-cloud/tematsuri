@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("ranking-container");
 
   try {
-    const res = await fetch("../rankings/ryuou.json");
+    const res = await fetch("rankings/ryuou.json");
     const list = await res.json();
 
     if (!Array.isArray(list)) {
