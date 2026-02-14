@@ -1,37 +1,54 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("ranking-container");
+  if (!container) return;
 
   try {
-    const response = await fetch(RANKING_FILE);
-    const json = await response.json();
+    const res = await fetch(RANKING_FILE);
+    const json = await res.json();
 
-    // 🔍 titles があるかチェック
     if (!json.titles || !Array.isArray(json.titles)) {
       container.innerHTML = "ランキングデータ形式が正しくありません。";
       return;
     }
 
-    // 🔍 対象タイトルを取得（id で判定）
-    const titleData = json.titles.find(t => t.id === TITLE_ID);
+    // =========================
+    // 🏠 index.html 用（TOP50）
+    // =========================
+    if (typeof IS_INDEX !== "undefined" && IS_INDEX) {
+      let html = "";
 
-    if (!titleData || !Array.isArray(titleData.top50)) {
-      container.innerHTML = "該当タイトルのランキングが見つかりません。";
+      json.titles.forEach(t => {
+        html += `
+          <div class="ranking-card">
+            <h3>${t.name}</h3>
+            <a href="pages/ranking_${t.id}.html">
+              ▶ ランキングを見る（TOP100）
+            </a>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
       return;
     }
 
-    const list = titleData.top50;
+    // =========================
+    // 📄 個別ページ用
+    // =========================
+    const title = json.titles.find(t => t.id === TITLE_ID);
 
-    let html = `
+    if (!title || !Array.isArray(title.top50)) {
+      container.innerHTML = "該当ランキングが見つかりません。";
+      return;
+    }
+
+    let table = `
       <table class="ranking-table">
-        <tr>
-          <th>順位</th>
-          <th>名前</th>
-          <th>スコア</th>
-        </tr>
+        <tr><th>順位</th><th>名前</th><th>スコア</th></tr>
     `;
 
-    list.forEach(p => {
-      html += `
+    title.top50.forEach(p => {
+      table += `
         <tr>
           <td>${p.rank}</td>
           <td>${p.name}</td>
@@ -40,9 +57,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       `;
     });
 
-    html += "</table>";
-
-    container.innerHTML = html;
+    table += "</table>";
+    container.innerHTML = table;
 
   } catch (e) {
     console.error(e);
