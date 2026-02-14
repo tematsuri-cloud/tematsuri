@@ -1,9 +1,12 @@
 {
-  "ryuou": [
-    { "rank": 1, "name": "藤井聡太", "rating": 1980 },
-    { "rank": 2, "name": "羽生善治", "rating": 1850 }
-  ],
-  "meijin": [
-    { "rank": 1, "name": "〇〇", "rating": 1800 }
+  "updated": "2026-02-11",
+  "titles": [
+    {
+      "id": "ryuou",
+      "name": "龍王戦",
+      "top50": [
+        { "rank": 1, "name": "AAA", "score": 1200 }
+      ]
+    }
   ]
 }
