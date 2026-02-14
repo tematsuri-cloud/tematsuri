@@ -165,7 +165,15 @@ footer {
   text-decoration: none;
 }
 
-body {
+.ranking-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+}body {
   font-family: system-ui, sans-serif;
   margin: 8px;
 }
@@ -199,7 +207,13 @@ body {
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
 .gold {
   background: linear-gradient(135deg,#f6d365,#fda085);
   color: #fff;
@@ -231,3 +245,25 @@ body {
   opacity: 0.6;
 }
 
+.ranking-highlight {
+  border: 2px solid gold;
+  background: #fffbe6;
+}
+
+.title-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.title-period {
+  font-size: 12px;
+  color: #666;
+}
+
+.badge {
+  margin-left: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  background: gold;
+  border-radius: 10px;
+}
