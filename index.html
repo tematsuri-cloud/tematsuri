@@ -57,27 +57,19 @@
 
 <script src="js/titles.js"></script>
 <script src="js/utils.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("ranking-container");
   container.innerHTML = "";
 
-  // 開催中を上にする
-  const sortedTitles = [...titles].sort((a, b) => {
-    const aActive = isNowInPeriod(a.start, a.end);
-    const bActive = isNowInPeriod(b.start, b.end);
-    return bActive - aActive;
-  });
-
-  sortedTitles.forEach(t => {
+  titles.forEach(t => {
     const isActive = isNowInPeriod(t.start, t.end);
 
     const card = document.createElement("div");
     card.className = "card" + (isActive ? " ranking-highlight" : "");
 
     card.innerHTML = `
-      <h4>${isActive ? "現在開催中" : "タイトル戦"}</h4>
-
       <p class="title-name">
         ${t.name}
         ${isActive ? `<span class="badge">開催中</span>` : ""}
