@@ -1,4 +1,6 @@
 [
-  { "rank": 1, "name": "AAA", "score": 1200 },
-  { "rank": 2, "name": "BBB", "score": 1180 }
+  { "rank": 1, "name": "一番", "score": 1200 },
+  { "rank": 2, "name": "BBB", "score": 1180 },
+  { "rank": 3, "name": "tata", "score": 1100 },
+  { "rank": 4, "name": "BBB", "score": 1100 }
 ]
