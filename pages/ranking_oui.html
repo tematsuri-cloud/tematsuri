@@ -1,28 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ランキング</title>
+  <meta charset="utf-8">
+  <title>王位戦ランキング</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
 <header>
-  <h2 id="title-name">タイトル戦ランキング</h2>
-  <a href="../index.html">← 戻る</a>
+  <h1>🏆 王位戦ランキング</h1>
+  <a class="back-link" href="../index.html">← 戻る</a>
 </header>
 
-<div class="card">
-  <p id="updated-date"></p>
-  <table class="ranking-table" id="ranking-table"></table>
+<div id="ranking-container">
+  ランキングを読み込み中…
 </div>
 
-<script src="../js/ranking-loader.js"></script>
 <script>
-loadRanking("ousho"); // ← ここだけ変更
+document.addEventListener("DOMContentLoaded", async () => {
+  const container = document.getElementById("ranking-container");
+
+  try {
+    const res = await fetch("../rankings/oui.json");
+
+    if (!res.ok) {
+      throw new Error("HTTP error");
+    }
+
+    const list = await res.json();
+
+    if (!Array.isArray(list)) {
+      container.innerHTML = "ランキングデータ形式が正しくありません。";
+      return;
+    }
+
+    let html = `
+      <table class="ranking-table">
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>スコア</th>
+        </tr>
+    `;
+
+    list.forEach(row => {
+      html += `
+        <tr>
+          <td>${row.rank}</td>
+          <td>${row.name}</td>
+          <td>${row.score}</td>
+        </tr>
+      `;
+    });
+
+    html += "</table>";
+    container.innerHTML = html;
+
+  } catch (e) {
+    console.error(e);
+    container.innerHTML = "ランキング読み込みエラー";
+  }
+});
 </script>
 
 </body>
