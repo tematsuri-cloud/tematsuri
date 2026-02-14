@@ -2,57 +2,39 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("ranking-container");
 
   try {
-    const response = await fetch("rankings/index_ranking.json");
+    const response = await fetch(RANKING_FILE);
     const data = await response.json();
 
-    if (!data || typeof data !== "object") {
+    if (!Array.isArray(data)) {
       container.innerHTML = "ランキングデータ形式が正しくありません。";
       return;
     }
 
-    let html = "";
+    let html = `
+      <table class="ranking-table">
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>レート</th>
+        </tr>
+    `;
 
-    for (const title in data) {
-      const players = data[title];
-      if (!Array.isArray(players)) continue;
-
+    data.forEach(player => {
       html += `
-        <div class="title-block">
-          <h2>${title.toUpperCase()}</h2>
-          <a class="detail-link" href="pages/ranking_${title}.html">
-            ▶ ${title.toUpperCase()} 100位を見る
-          </a>
+        <tr>
+          <td>${player.rank}</td>
+          <td>${player.name}</td>
+          <td>${player.rating}</td>
+        </tr>
       `;
+    });
 
-      html += `
-        <table>
-          <tr>
-            <th>順位</th>
-            <th>名前</th>
-            <th>レート</th>
-          </tr>
-      `;
-
-      players.forEach(player => {
-        html += `
-          <tr>
-            <td>${player.rank}</td>
-            <td>${player.name}</td>
-            <td>${player.rating}</td>
-          </tr>
-        `;
-      });
-
-      html += `
-        </table>
-        </div>
-      `;
-    }
+    html += "</table>";
 
     container.innerHTML = html;
 
-  } catch (error) {
-    console.error(error);
+  } catch (e) {
+    console.error(e);
     container.innerHTML = "ランキング読み込みエラー";
   }
 });
