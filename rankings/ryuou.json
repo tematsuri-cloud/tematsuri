@@ -1,12 +1,4 @@
-{
-  "updated": "2026-02-11",
-  "titles": [
-    {
-      "id": "ryuou",
-      "name": "龍王戦",
-      "top50": [
-        { "rank": 1, "name": "AAA", "score": 1200 }
-      ]
-    }
-  ]
-}
+[
+  { "rank": 1, "name": "AAA", "score": 1200 },
+  { "rank": 2, "name": "BBB", "score": 1180 }
+]
