@@ -6,23 +6,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(RANKING_FILE);
     const json = await res.json();
 
-    if (!json.titles || !Array.isArray(json.titles)) {
+    // 🔴 ここで構造チェック
+    if (
+      !json ||
+      !json.titles ||
+      !Array.isArray(json.titles)
+    ) {
+      console.error("JSON構造:", json);
       container.innerHTML = "ランキングデータ形式が正しくありません。";
       return;
     }
 
     // =========================
-    // 🏠 index.html 用（TOP50）
+    // 🏠 index.html 用
     // =========================
     if (typeof IS_INDEX !== "undefined" && IS_INDEX) {
-      let html = "";
+      let html = `
+        <p class="ranking-updated">
+          更新日：${json.updated || "不明"}
+        </p>
+      `;
 
       json.titles.forEach(t => {
         html += `
           <div class="ranking-card">
-            <h3>${t.name}</h3>
+            <h4>${t.name}</h4>
+            <p>参加者数：${t.top50?.length || 0}</p>
             <a href="pages/ranking_${t.id}.html">
-              ▶ ランキングを見る（TOP100）
+              ▶ TOP100 ランキングを見る
             </a>
           </div>
         `;
@@ -32,36 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // =========================
-    // 📄 個別ページ用
-    // =========================
-    const title = json.titles.find(t => t.id === TITLE_ID);
-
-    if (!title || !Array.isArray(title.top50)) {
-      container.innerHTML = "該当ランキングが見つかりません。";
-      return;
-    }
-
-    let table = `
-      <table class="ranking-table">
-        <tr><th>順位</th><th>名前</th><th>スコア</th></tr>
-    `;
-
-    title.top50.forEach(p => {
-      table += `
-        <tr>
-          <td>${p.rank}</td>
-          <td>${p.name}</td>
-          <td>${p.score}</td>
-        </tr>
-      `;
-    });
-
-    table += "</table>";
-    container.innerHTML = table;
-
   } catch (e) {
-    console.error(e);
+    console.error("ランキング取得エラー:", e);
     container.innerHTML = "ランキング読み込みエラー";
   }
 });
