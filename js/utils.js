@@ -14,3 +14,10 @@ function isOngoing(titleId, date) {
 
   return date >= start && date <= end;
 }
+function isNowInPeriod(start, end) {
+  const today = new Date();
+  const s = new Date(start);
+  const e = new Date(end);
+
+  return today >= s && today <= e;
+}
