@@ -57,41 +57,7 @@
             </p>
 
 <h3>🏆 タイトル戦ランキング</h3>
-<div id="ranking-container"></div>
 
-<script src="js/titles.js"></script>
-<script src="js/utils.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("ranking-container");
-  container.innerHTML = "";
-
-  titles.forEach(t => {
-    const isActive = isNowInPeriod(t.start, t.end);
-
-    const card = document.createElement("div");
-    card.className = "card" + (isActive ? " ranking-highlight" : "");
-
-    card.innerHTML = `
-      <p class="title-name">
-        ${t.name}
-        ${isActive ? `<span class="badge">開催中</span>` : ""}
-      </p>
-
-      <p class="title-period">
-        更新日：${t.updated}
-      </p>
-
-      <a class="ranking-btn" href="pages/ranking_${t.id}.html">
-        ▶ ランキングを見る（TOP100）
-      </a>
-    `;
-
-    container.appendChild(card);
-  });
-});
-</script>
       
 <h3>🌍 駒・キャラクター</h3>
 <div class="gallery">
