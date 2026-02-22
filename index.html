@@ -329,60 +329,41 @@ btnEn.onclick = () => {
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("ranking-container");
-
-  const data = await fetch("rankings/index_ranking.json")
-    .then(res => res.json());
+  if (!container) return;
 
   const today = new Date();
 
-  // 開催中タイトルを上へ
-  const sorted = data.titles.sort((a, b) => {
-    const aOngoing = isOngoing(a.id, today);
-    const bOngoing = isOngoing(b.id, today);
-    return bOngoing - aOngoing;
+  // 開催中を上に並び替え
+  const sortedTitles = [...titles].sort((a, b) => {
+    const aOn = isNowInPeriod(a.start, a.end);
+    const bOn = isNowInPeriod(b.start, b.end);
+    return bOn - aOn;
   });
 
-  sorted.forEach(title => {
-    const ongoing = isOngoing(title.id, today);
+  sortedTitles.forEach(t => {
+    const ongoing = isNowInPeriod(t.start, t.end);
 
-    const card = document.createElement("div");
-    card.className = "card";
-    if (ongoing) card.classList.add("gold");
+    const div = document.createElement("div");
+    div.className = "ranking-card";
+    if (ongoing) div.classList.add("ongoing");
 
-    card.innerHTML = `
-      <h4>${title.name}</h4>
-      <p>更新日: ${data.updated}</p>
-      <table class="ranking-table">
-        ${title.top50.map(player => `
-          <tr>
-            <td>${player.rank}</td>
-            <td>${player.name}</td>
-            <td>${player.score}</td>
-          </tr>
-        `).join("")}
-      </table>
-      <a class="ranking-btn" href="pages/ranking_${title.id}.html">
-        ▶ 100位まで見る
+    div.innerHTML = `
+      <h4>
+        ${t.name}
+        ${ongoing ? '<span class="badge">開催中</span>' : ''}
+      </h4>
+      <p class="updated">更新日：${t.updated}</p>
+      <a href="pages/ranking_${t.id}.html">
+        ▶ TOP100 ランキングを見る
       </a>
     `;
 
-    container.appendChild(card);
+    container.appendChild(div);
   });
 });
 </script>
-  <script>
-  const RANKING_FILE = "rankings/index_ranking.json";
-  const IS_INDEX = true;   // ← これが重要
-</script>
-
-<script>
-  const RANKING_FILE = "rankings/index_ranking.json";
-  const IS_INDEX = true;
-</script>
-
-<script src="js/ranking-loader.js"></script>
 
 
 </body>
