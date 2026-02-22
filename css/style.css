@@ -165,19 +165,6 @@ footer {
   text-decoration: none;
 }
 
-.ranking-btn {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 12px;
-  background: #333;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-}body {
-  font-family: system-ui, sans-serif;
-  margin: 8px;
-}
-
 .title-section {
   margin-bottom: 24px;
 }
@@ -207,13 +194,7 @@ body {
   background: #ffffff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 14px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
+
 .gold {
   background: linear-gradient(135deg,#f6d365,#fda085);
   color: #fff;
@@ -260,10 +241,26 @@ body {
   color: #666;
 }
 
+.ranking-card {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ranking-card.ongoing {
+  background: #fff8e1;
+}
+
 .badge {
-  margin-left: 6px;
+  margin-left: 8px;
   padding: 2px 8px;
-  font-size: 11px;
-  background: gold;
-  border-radius: 10px;
+  font-size: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.updated {
+  font-size: 13px;
+  color: #666;
 }
