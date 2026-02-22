@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             ${title.name}
             ${ongoing ? '<span class="badge">開催中</span>' : ''}
           </h4>
-          <p class="updated">更新日：${title.updated}</p>
+          //<p class="updated">更新日：${title.updated}</p>
           <a href="pages/ranking_${title.id}.html">
             ▶ ランキングを見る（TOP100）
           </a>
