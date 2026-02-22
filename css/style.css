@@ -249,7 +249,24 @@ body {
 .ranking-card.ongoing {
   background: #fff8e1;
 }
+.ranking-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
 
+.rank {
+  font-weight: bold;
+  width: 50px;
+}
+
+.name {
+  width: 120px;
+}
+
+.score {
+  width: 80px;
+}
 .badge {
   margin-left: 8px;
   padding: 2px 8px;
