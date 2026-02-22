@@ -218,14 +218,7 @@ body {
   padding: 8px 6px;
   border-bottom: 1px solid #ddd;
 }
-.ranking-table th {
-  background: #f5f5f5;
-  font-weight: bold;
-}
 
-.ranking-table tr:nth-child(even) {
-  background: #fafafa;
-}
 .title-block {
   margin-bottom: 40px;
 }
