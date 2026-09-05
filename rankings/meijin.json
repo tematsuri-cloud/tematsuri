@@ -1,5 +1,5 @@
 [
-  { "rank": 1, "no name": "", "score": 1549 }
-  { "rank": 2, "Parum": "", "score": 1513 }
-  { "rank": 3, "Tester02": "", "score": 1095 }
+  { "rank": 1, "name": "NoName", "score": 1549 },
+  { "rank": 2, "name": "Parum", "score": 1513 },
+  { "rank": 3, "name": "Tester02", "score": 1095 }
 ]
